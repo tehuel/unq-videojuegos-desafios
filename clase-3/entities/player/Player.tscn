@@ -11,4 +11,5 @@ texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="cannon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.0635071, -24.1654 )
 projectile_scene = ExtResource( 4 )
