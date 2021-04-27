@@ -3,6 +3,7 @@ extends Sprite
 var speed = 200 #Pixeles
 
 onready var cannon = $cannon
+onready var attack_sound = $AttackSound
 
 func initialize(projectile_container):
 	cannon.container = projectile_container
@@ -19,5 +20,6 @@ func _physics_process(delta):
 	position.x += direction_optimized * speed * delta
 	
 	if Input.is_action_just_pressed("fire"):
+		attack_sound.play()
 		cannon.fire()
 	
