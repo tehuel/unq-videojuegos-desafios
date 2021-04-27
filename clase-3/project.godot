@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Proyecto Godot - Clase 3"
+config/name="clase-3"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
