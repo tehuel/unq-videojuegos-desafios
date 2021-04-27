@@ -2,7 +2,7 @@ extends Sprite
 
 var speed = 200 #Pixeles
 
-onready var cannon = $Cannon
+onready var cannon = $cannon
 
 func initialize(projectile_container):
 	cannon.container = projectile_container
