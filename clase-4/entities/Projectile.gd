@@ -1,4 +1,4 @@
-extends Sprite
+extends Area2D
 
 onready var lifetime_timer = $LifetimeTimer
 
