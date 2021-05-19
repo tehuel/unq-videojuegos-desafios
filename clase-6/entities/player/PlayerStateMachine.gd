@@ -3,6 +3,7 @@ extends "res://entities/player/StateMachine.gd"
 enum STATES {
 	IDLE,
 	WALK,
+	ROLL,
 	JUMP,
 	DEAD
 }
@@ -10,6 +11,7 @@ enum STATES {
 var animations_map:Dictionary = {
 	STATES.IDLE: "idle",
 	STATES.WALK: "walk",
+	STATES.ROLL: "roll",
 	STATES.JUMP: "jump",
 	STATES.DEAD: "dead"
 }
