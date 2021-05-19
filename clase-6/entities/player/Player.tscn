@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player/girl_spritesheet.png" type="Texture" id=2]
@@ -60,6 +60,35 @@ tracks/0/keys = {
 "values": [ 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "roll"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 360.0 ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "walk"
 length = 0.95
@@ -95,18 +124,20 @@ script = ExtResource( 1 )
 anims/dead = SubResource( 1 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 3 )
+anims/roll = SubResource( 7 )
 anims/walk = SubResource( 4 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
 
 [node name="Body" type="Sprite" parent="."]
+rotation = 3.27313
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 5 )
 offset = Vector2( 50, 0 )
-vframes = 8
 hframes = 15
-frame = 34
+vframes = 8
+frame = 5
 
 [node name="Slime" type="Sprite" parent="."]
 position = Vector2( -1.26132, -72.3171 )
