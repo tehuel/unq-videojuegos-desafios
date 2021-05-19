@@ -131,13 +131,12 @@ anims/walk = SubResource( 4 )
 script = ExtResource( 7 )
 
 [node name="Body" type="Sprite" parent="."]
-rotation = 3.27313
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 5 )
 offset = Vector2( 50, 0 )
 hframes = 15
 vframes = 8
-frame = 5
+frame = 1
 
 [node name="Slime" type="Sprite" parent="."]
 position = Vector2( -1.26132, -72.3171 )

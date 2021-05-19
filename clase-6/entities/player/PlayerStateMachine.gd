@@ -44,8 +44,13 @@ func _get_transition(delta):
 			if int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")) != 0:
 				return STATES.WALK
 		STATES.WALK:
+			if (Input.is_action_pressed("roll")):
+				return STATES.ROLL
 			if parent.move_direction == 0:
 				return STATES.IDLE
+		STATES.ROLL:
+			if (!Input.is_action_pressed("roll")):
+				return STATES.WALK
 		STATES.JUMP:
 			if parent.is_on_floor():
 				if parent.move_direction != 0:
