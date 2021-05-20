@@ -34,7 +34,16 @@ func _get_transition(delta):
 	if state != STATES.DEAD && PlayerData.current_health == 0:
 		parent.emit_signal("dead")
 		return STATES.DEAD
-	if Input.is_action_just_pressed("jump") && parent.is_on_floor() && [STATES.IDLE, STATES.WALK].has(state):
+	
+	var can_double_jump = 	parent.can_double_jump && state == STATES.JUMP
+	var can_simple_jump = 	parent.is_on_floor() && [STATES.IDLE, STATES.WALK].has(state)
+	var can_jump = can_simple_jump || can_double_jump
+	if Input.is_action_just_pressed("jump") && can_jump:
+		if (can_simple_jump):
+			parent.can_double_jump = true
+		if (can_double_jump):
+			parent.can_double_jump = false
+
 		parent.snap_vector = Vector2.ZERO
 		parent.velocity.y = -parent.jump_speed
 		return STATES.JUMP

@@ -29,6 +29,7 @@ var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
 var move_direction:int = 0
 var stop_on_slope:bool = true
+var can_double_jump:bool = false
 
 func _ready():
 	sm.initialize(self)
