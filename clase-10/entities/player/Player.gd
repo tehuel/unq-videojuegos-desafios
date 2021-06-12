@@ -24,6 +24,7 @@ const SNAP_DIRECTION := Vector2.DOWN
 const SNAP_LENGTH := 32.0
 const SLOPE_THRESHOLD := deg2rad(60)
 
+export (int) var recoil = 20
 export (int) var max_health = 2
 export (float) var ACCELERATION:float = 30.0
 export (float) var H_SPEED_LIMIT:float = 400.0
@@ -86,6 +87,7 @@ func _handle_cannon_actions(should_fire:bool = true):
 		var distance = pos.distance_to(ray_effect.global_position)
 		shield_effect.material.set_shader_param("firing_angle", cannon.rotation)
 		ray_effect.clamp_distance(distance)
+		velocity.x += recoil * (1 - int(get_local_mouse_position().x > 0) * 2)
 	ray_sfx.playing = is_firing
 
 func _apply_movement():
